@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'nokogiri'
 
 class WebArticle < Document
 
@@ -13,6 +14,7 @@ class WebArticle < Document
       page_content += snippet
     end
     @web_article.text = page_content
+    @web_article.save
     @web_article
   end
 

@@ -1,0 +1,8 @@
+%h4
+= form_for WebArticle.new, html: {class: "form-inline"} do |f|
+  .form-group
+    = f.label :url, class: "sr-only"
+    = f.text_field :url, class: "form-control input-lg message-field", placeholder: "Enter a url"
+
+  = f.submit "Skim it", class: "btn btn-primary btn-lg"
+

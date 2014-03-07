@@ -1,4 +1,8 @@
 Skim::Application.routes.draw do
+
+  root 'web_articles#new'
+  resources :web_articles
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
