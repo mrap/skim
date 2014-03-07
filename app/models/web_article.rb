@@ -11,7 +11,8 @@ class WebArticle < Document
     doc = Nokogiri::HTML(open(url))
     page_content = ""
     doc.xpath('//p').each do |snippet|
-      page_content += snippet
+      page_content += snippet 
+      page_content += " " # Add a space after each snippet.
     end
     @web_article.text = page_content
     @web_article.save
