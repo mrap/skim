@@ -12,7 +12,7 @@ development:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: my-app-development
+      database: skim-development
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
@@ -68,7 +68,7 @@ development:
 test:
   sessions:
     default:
-      database: my-app-test
+      database: skim-test
       hosts:
         - localhost:27017
       options:

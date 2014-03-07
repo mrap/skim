@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-MyApp::Application.config.secret_key_base = '9464e93781ce52fd21ae987f8c1dbf50d7fe741890342dc64227910ce175983bcfa9310bc31c5a8dda50cbf722e62aa2be74960a7f40c8f6a086678f9be0ac99'
+Skim::Application.config.secret_key_base = 'c6fa0337f7220f29e508e20fced32a3fae7d8873263e0b9e264ef534f57f2cda66391bdbb64ad30d5207ef9215594bcbfa35fcaf8ec623bbddee1a7a21f2e518'

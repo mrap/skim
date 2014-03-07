@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-MyApp::Application.load_tasks
+Skim::Application.load_tasks
