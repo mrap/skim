@@ -46,6 +46,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    angularjs-rails (1.2.14)
     arel (5.0.0)
     atomic (1.1.15)
     bootstrap-sass (3.1.1.0)
@@ -249,6 +250,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angularjs-rails
   bootstrap-sass
   capybara
   capybara-webkit

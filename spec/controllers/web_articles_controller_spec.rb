@@ -25,4 +25,12 @@ describe WebArticlesController do
       response.should be_successful
     end
   end
+
+  describe "GET #optimized" do
+    before { @web_article =  WebArticle.create_from_url(url) }
+    it "should be successful" do
+      get :optimized, id: @web_article.id
+      response.should be_successful
+    end
+  end
 end

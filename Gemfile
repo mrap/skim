@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'haml-rails'
+gem 'angularjs-rails'
 
 # DB
 gem 'mongoid', git: 'https://github.com/mongoid/mongoid'

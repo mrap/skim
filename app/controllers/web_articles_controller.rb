@@ -14,4 +14,9 @@ class WebArticlesController < ApplicationController
       render nothing: true, status: :bad_request
     end
   end
+
+  def optimized
+    @web_article = WebArticle.find(params[:id])
+    render json: SkimParser.optimized_array(@web_article.text).to_json
+  end
 end
