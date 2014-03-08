@@ -20,6 +20,8 @@ gem 'moped', git: 'https://github.com/mongoid/moped'
 
 # Mongoid Full Text Search
 # gem 'mongoid_search', git: 'https://github.com/mauriciozaffari/mongoid_search', branch: 'master'
+#
+gem 'nokogiri'
 
 # Biased production gems for Heroku deployment.
 group :production do

@@ -266,6 +266,7 @@ DEPENDENCIES
   mongoid!
   mongoid-rspec
   moped!
+  nokogiri
   orderly
   poltergeist
   rails (= 4.1.0.rc1)
