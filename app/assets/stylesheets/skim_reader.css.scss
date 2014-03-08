@@ -30,17 +30,17 @@
 .keyword {
   border-top: 2px solid $flat-text-color;
   border-bottom: 2px solid $flat-text-color;
-  font-size: 2em;
+  font-size: 1.5em;
   font-family: "proxima-nova",sans-serif;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   color: $flat-text-color;
 
 
   span {
     display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .first-half {
