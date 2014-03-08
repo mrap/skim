@@ -85,6 +85,11 @@ directives.directive('skimReader', function($http, $location, $interval){
 
     function formatKeyword(word, keyIndex) {
       var keywordMarkup = "<span class=\"first-half\">";
+
+      // One letter word, close the first half span.
+      if (word.length < 2) {
+        keywordMarkup += "</span>";
+      }
       for(var i = 0; i < word.length; i++ ) {
         if (i == keyIndex) {
           keywordMarkup += "<span class=\""+attrs.keyLetterClass+"\">"+word[i] + "</span>";
@@ -100,7 +105,7 @@ directives.directive('skimReader', function($http, $location, $interval){
         }
       }
       // Close the last span.
-      keywordMarkup += "</span";
+      keywordMarkup += "</span>";
       return keywordMarkup;
     }
 
