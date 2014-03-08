@@ -1,6 +1,7 @@
 'use strict';
 
 var MAX_INTERVAL_BETWEEN = 1000;
+var WORDS_IN_PHRASE = 3;
 
 var directives = angular.module('skim.directives', []);
 
@@ -9,6 +10,7 @@ directives.directive('skimReader', function($http, $location, $interval){
     var intervalBetween = MAX_INTERVAL_BETWEEN,
         optimizedTextArray = [],
         currentIndex = 0,
+        phraseCount = 1,
         keyword = "",
         timer,
         isTimerRunning = false;
@@ -40,6 +42,10 @@ directives.directive('skimReader', function($http, $location, $interval){
       return intervalBetween * 1.5;
     };
 
+    var phrasePauseInterval = function(){
+      return intervalBetween;
+    };
+
 
     function updateIntervalBetweenWithWPM(wpm) {
       intervalBetween = Math.min(1000 / (wpm/60), MAX_INTERVAL_BETWEEN);
@@ -52,11 +58,16 @@ directives.directive('skimReader', function($http, $location, $interval){
         var word = wordHash.word;
         keyword = formatKeyword(word, wordHash.optimum_index);
         currentIndex += 1;
+        phraseCount += 1;
         element.html(keyword);
 
         // If last character is a punctuation, pause timer.
         if (isLastCharacterPunctuation(word)) {
+          phraseCount = 0;
           pauseTimer(punctuationPauseInterval);
+        } else if (phraseCount >= WORDS_IN_PHRASE) {
+          phraseCount = 0;
+          pauseTimer(phrasePauseInterval);
         }
       } else {
         stopTimer();
