@@ -1,18 +1,16 @@
 .skim-reader{"ng-controller"=>"SkimReaderCtrl"}
   .keyword{"skim-reader"=>"", "wpm"=>"wpm", "ng-bind-html"=>"keyword", "key-letter-class"=>"key-letter"}
 
-  .controls.row
-    .col-xs-2
-      %button.btn.btn-success{"ng-click"=>"startSkimming()", "ng-hide"=>"userWantsToSkim"}
-        Start
-      %button.btn.btn-default{"ng-click"=>"stopSkimming()", "ng-show"=>"userWantsToSkim"}
-        Stop
-    .col-xs-6
-      %input.slider{"type"=>"range", "name"=>"wpm", "ng-model"=>"wpm", "min"=>"200", "max"=>"1000.0", "step"=>"50.0"}
-      %p.wpm-label
-        %span#wpm
-          {{wpm}}
-        Words Per Minute
+  .controls
+    %input.slider{"type"=>"range", "name"=>"wpm", "ng-model"=>"wpm", "min"=>"200", "max"=>"1000.0", "step"=>"50.0"}
+    %p.wpm-label
+      %span#wpm
+        {{wpm}}
+      Words Per Minute
+    %button.btn.btn-success{"ng-click"=>"startSkimming()", "ng-hide"=>"userWantsToSkim"}
+      Start
+    %button.btn.btn-default{"ng-click"=>"stopSkimming()", "ng-show"=>"userWantsToSkim"}
+      Stop
 
 .url-form.bottom
   How about another?
