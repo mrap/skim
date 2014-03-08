@@ -10,7 +10,8 @@ directives.directive('skimReader', function($http, $location, $interval){
         optimizedTextArray = [],
         currentIndex = 0,
         keyword = "",
-        timer;
+        timer,
+        isTimerRunning = false;
 
     // Before anything, get the optimized text.
     var optimizedDocumentURL = $location.absUrl() + '/optimized.json';
@@ -84,15 +85,22 @@ directives.directive('skimReader', function($http, $location, $interval){
     }
 
     function startTimer(){
-      timer = $interval(function() {
-        progressKeyword()
-      }, intervalBetween);
-      console.log("Timer started");
+      if (!isTimerRunning) {
+        isTimerRunning = true;
+        timer = $interval(function() {
+          progressKeyword()
+        }, intervalBetween);
+        console.log("Timer started");
+      }
     }
 
     function stopTimer(){
-      $interval.cancel(timer);
-      console.log("Timer Stopped");
+      if (isTimerRunning) {
+        isTimerRunning = false;
+        $interval.cancel(timer);
+        timer = undefined;
+        console.log("Timer Stopped");
+      }
     }
 
     function restartTimer(){
