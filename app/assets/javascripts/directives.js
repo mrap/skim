@@ -7,6 +7,7 @@ var directives = angular.module('skim.directives', []);
 
 directives.directive('skimReader', function($http, $location, $interval){
   function link(scope, element, attrs) {
+    // Initial variables.
     var intervalBetween = MAX_INTERVAL_BETWEEN,
         optimizedTextArray = [],
         currentIndex = 0,
@@ -15,27 +16,35 @@ directives.directive('skimReader', function($http, $location, $interval){
         timer,
         isTimerRunning = false;
 
-    // Before anything, get the optimized text.
+    scope.userWantsToSkim = false;
+
+
+    // Interface variables.
+    scope.startSkimming = function(){
+      scope.userWantsToSkim = true;
+      startTimer();
+    };
+
+    scope.stopSkimming = function(){
+      scope.userWantsToSkim = false;
+      stopTimer();
+    };
+
+    // Updates intervalBetween if wpm changes changes
+    scope.$watch(attrs.wpm, function(value) {
+      updateIntervalBetweenWithWPM(value);
+    });
+
+    // Prepare timer.
+    element.on('$destroy', function() {
+      console.log("SkimReader destroyed");
+      stopTimer();
+    });
+
+    // Get the optimized text.
     var optimizedDocumentURL = $location.absUrl() + '/optimized.json';
     $http.get(optimizedDocumentURL).success(function(data, status){
       optimizedTextArray = data;
-      console.log(optimizedTextArray);
-
-      // Prepare timer.
-      element.on('$destroy', function() {
-        console.log("SkimReader destroyed");
-        stopTimer();
-      });
-
-      // Updates intervalBetween if wpm changes changes
-      scope.$watch(attrs.wpm, function(value) {
-        console.log("WPM: "+value);
-        updateIntervalBetweenWithWPM(value);
-      });
-
-      // Start skimming
-      console.log(element);
-      startTimer();
     });
 
     var punctuationPauseInterval = function(){
@@ -96,7 +105,7 @@ directives.directive('skimReader', function($http, $location, $interval){
     }
 
     function startTimer(){
-      if (!isTimerRunning) {
+      if (!isTimerRunning && scope.userWantsToSkim) {
         isTimerRunning = true;
         timer = $interval(function() {
           progressKeyword()
