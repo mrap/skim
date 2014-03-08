@@ -1,5 +1,4 @@
 .skim-reader{"ng-controller"=>"SkimReaderCtrl"}
-
   .keyword{"skim-reader"=>"", "wpm"=>"wpm", "ng-bind-html"=>"keyword", "key-letter-class"=>"key-letter"}
 
   .controls.row
@@ -14,3 +13,7 @@
         %span#wpm
           {{wpm}}
         Words Per Minute
+
+.url-form.bottom
+  How about another?
+  = render partial: 'form', flash: flash
