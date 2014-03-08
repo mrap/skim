@@ -52,7 +52,7 @@ directives.directive('skimReader',['$http', '$location', '$interval', function($
     };
 
     var phrasePauseInterval = function(){
-      return intervalBetween;
+      return intervalBetween / 2;
     };
 
 
