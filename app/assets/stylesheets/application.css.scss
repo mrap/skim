@@ -12,6 +12,16 @@
  *= require_tree .
  */
 
+@import "colors";
 @import "bootstrap";
 @import "bootstrap/theme";
 
+html, body{
+  height: 100%;
+  margin: 0;
+  background-color: $flat-light-bg;
+}
+
+.container {
+  height: 100%;
+}

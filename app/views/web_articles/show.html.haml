@@ -1,3 +1,10 @@
 .skim-reader{"ng-controller"=>"SkimReaderCtrl"}
-  %input{"type"=>"text", "ng-model"=>"wpm"}
+
   .keyword{"skim-reader"=>"", "wpm"=>"wpm", "ng-bind-html"=>"keyword", "key-letter-class"=>"key-letter"}
+
+  .controls
+    %input.slider{"type"=>"range", "name"=>"wpm", "ng-model"=>"wpm", "min"=>"200", "max"=>"1000.0", "step"=>"50.0"}
+    %p.wpm-label
+      %span#wpm
+        {{wpm}}
+      Words Per Minute
