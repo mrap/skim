@@ -9,7 +9,7 @@ class SkimParser
   end
 
   def self.optimum_index(word)
-    @length = word.length
+    @length = self.punctuationless_word(word).length
 
     return 1 if @length <= 4
 
@@ -19,4 +19,10 @@ class SkimParser
       @length / 2
     end
   end
+
+  private
+
+    def self.punctuationless_word(word)
+      word.downcase.gsub(/[^a-z ]/, '').gsub(/ /, '-')
+    end
 end
