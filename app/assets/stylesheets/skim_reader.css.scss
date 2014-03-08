@@ -1,0 +1,31 @@
+
+.skim-reader {
+  width: 100%;
+  height: 100%;
+}
+
+.keyword {
+  margin-top: 20%;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 3em;
+  font-family: "inconsolata",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+
+  span {
+    display: inline-block;
+  }
+
+  .first-half {
+    width: 30%;
+    text-align: right;
+  }
+
+  .key-letter {
+    color: #CC0404;
+  }
+}
+

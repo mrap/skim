@@ -5,6 +5,11 @@
     %meta{ :content => "width=device-width, initial-scale=1.0", :name => "viewport" }
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application'
+
+    -# Type Kit 
+    %script{src: "//use.typekit.net/ans2udu.js", type: "text/javascript"}
+      :javascript
+        try{Typekit.load();}catch(e){}
     = csrf_meta_tags
   %body
     .container

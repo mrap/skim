@@ -53,14 +53,23 @@ directives.directive('skimReader', function($http, $location, $interval){
     }
 
     function formatKeyword(word, keyIndex) {
-      var keywordMarkup = "";
+      var keywordMarkup = "<span class=\"first-half\">";
       for(var i = 0; i < word.length; i++ ) {
         if (i == keyIndex) {
           keywordMarkup += "<span class=\""+attrs.keyLetterClass+"\">"+word[i] + "</span>";
-        } else {
+        }
+        else if (i == keyIndex - 1) {
+          keywordMarkup += word[i] + "</span>";
+        }
+        else if (i == keyIndex + 1) {
+          keywordMarkup += "<span>" + word[i];
+        }
+        else {
           keywordMarkup += word[i];
         }
       }
+      // Close the last span.
+      keywordMarkup += "</span";
       return keywordMarkup;
     }
 
