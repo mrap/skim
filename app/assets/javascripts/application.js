@@ -18,6 +18,7 @@
 //= require_tree .
 
 var app = angular.module('AppCtrl', [
+  'skim.directives',
   'skim.controllers',
   'ngRoute'
 ]);
