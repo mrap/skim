@@ -2,7 +2,7 @@ class SkimParser
 
   def self.optimized_array(text)
     text_array = []
-    text.split(" ").map do |word|
+    text.split(/[[:space:]]+/).map do |word|
       text_array << { word: word, optimum_index: self.optimum_index(word) }
     end
     text_array
