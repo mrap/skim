@@ -13,11 +13,12 @@ class SkimParser
 
     return 1 if @length <= 4
 
-    if @length % 2 == 0
-      @length / 2 - 1
-    else
-      @length / 2
-    end
+    (@length * 0.4).to_i
+    # if @length % 2 == 0
+    #   @length / 2 - 1
+    # else
+    #   @length / 2
+    # end
   end
 
   private
