@@ -35,6 +35,10 @@ directives.directive('skimReader', function($http, $location, $interval){
       startTimer();
     });
 
+    var punctuationPauseInterval = function(){
+      return intervalBetween * 1.5;
+    };
+
 
     function updateIntervalBetweenWithWPM(wpm) {
       intervalBetween = Math.min(1000 / (wpm/60), MAX_INTERVAL_BETWEEN);
@@ -44,9 +48,15 @@ directives.directive('skimReader', function($http, $location, $interval){
     function progressKeyword() {
       if (currentIndex < optimizedTextArray.length) {
         var wordHash = optimizedTextArray[currentIndex];
-        keyword = formatKeyword(wordHash.word, wordHash.optimum_index);
+        var word = wordHash.word;
+        keyword = formatKeyword(word, wordHash.optimum_index);
         currentIndex += 1;
         element.html(keyword);
+
+        // If last character is a punctuation, pause timer.
+        if (isLastCharacterPunctuation(word)) {
+          pauseTimer(punctuationPauseInterval);
+        }
       } else {
         stopTimer();
       }
@@ -88,6 +98,22 @@ directives.directive('skimReader', function($http, $location, $interval){
     function restartTimer(){
       stopTimer();
       startTimer();
+    }
+
+    function pauseTimer(delay) {
+      stopTimer();
+      if (delay) {
+        console.log("Paused for: " + delay() + "s");
+        $interval(function() {
+          startTimer();
+        }, delay(), 1);
+      }
+    }
+
+    function isLastCharacterPunctuation (word){
+      var punctutations = ".,:;?!)";
+      var lastCharacter = word[word.length - 1];
+      return punctutations.indexOf(lastCharacter) != -1;
     }
   }
 
