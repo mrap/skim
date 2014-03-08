@@ -5,7 +5,7 @@ var WORDS_IN_PHRASE = 3;
 
 var directives = angular.module('skim.directives', []);
 
-directives.directive('skimReader', function($http, $location, $interval){
+directives.directive('skimReader',['$http', '$location', '$interval', function($http, $location, $interval){
   function link(scope, element, attrs) {
     // Initial variables.
     var intervalBetween = MAX_INTERVAL_BETWEEN,
@@ -153,4 +153,4 @@ directives.directive('skimReader', function($http, $location, $interval){
   return {
     link: link
   };
-});
+}]);
