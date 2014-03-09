@@ -27,6 +27,24 @@
   }
 }
 
+.focus-line {
+  position: absolute;
+  border-right: 1px solid $flat-text-color;
+  width: 20%;
+  margin-left: 0.4em;
+  height: 0.8em;
+}
+
+.focus-line-top {
+  @extend .focus-line;
+  top: 0px;
+}
+
+.focus-line-bottom {
+  @extend .focus-line;
+  top: 3em;
+}
+
 .keyword {
   border-top: 2px solid $flat-text-color;
   border-bottom: 2px solid $flat-text-color;
