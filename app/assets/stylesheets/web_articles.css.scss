@@ -2,12 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'colors';
+
 .main-page {
   position: relative;
 }
 
 .url-form {
   margin-top: 20px;
+
+  &.bottom {
+    color: $solarized-text-color;
+    background-color: $flat-black-color;
+  }
 }
 
 .recent-article-item {

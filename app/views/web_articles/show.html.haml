@@ -13,5 +13,7 @@
       Stop
 
 .url-form.bottom
-  How about another?
+  %p
+    How about another?
+    = link_to "See Recent Articles", '/#recent-articles'
   = render partial: 'form', flash: flash
