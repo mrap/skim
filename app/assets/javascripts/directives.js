@@ -37,7 +37,6 @@ directives.directive('skimReader',['$http', '$location', '$interval', function($
 
     // Prepare timer.
     element.on('$destroy', function() {
-      console.log("SkimReader destroyed");
       stopTimer();
     });
 
@@ -115,7 +114,6 @@ directives.directive('skimReader',['$http', '$location', '$interval', function($
         timer = $interval(function() {
           progressKeyword()
         }, intervalBetween);
-        console.log("Timer started");
       }
     }
 
@@ -124,7 +122,6 @@ directives.directive('skimReader',['$http', '$location', '$interval', function($
         isTimerRunning = false;
         $interval.cancel(timer);
         timer = undefined;
-        console.log("Timer Stopped");
       }
     }
 
@@ -136,7 +133,6 @@ directives.directive('skimReader',['$http', '$location', '$interval', function($
     function pauseTimer(delay) {
       stopTimer();
       if (delay) {
-        console.log("Paused for: " + delay() + "s");
         $interval(function() {
           startTimer();
         }, delay(), 1);
