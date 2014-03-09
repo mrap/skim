@@ -7,7 +7,9 @@
       fast
 
     .url-form
-      = render partial: 'form', flash: flash
+      = render partial: 'web_articles/form', flash: flash
+    .url-form
+      = render partial: 'documents/form', flash: flash
 
   #recent-articles
     = render partial: 'recent'

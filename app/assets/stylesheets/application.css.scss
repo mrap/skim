@@ -34,3 +34,8 @@ html, body{
 .main-word {
   color: $solarized-orange;
 }
+
+textarea {
+  resize: none;
+  min-width: 250px;
+}

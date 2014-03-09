@@ -1,0 +1,7 @@
+
+= form_for Document.new, html: {class: "form-inline"} do |f|
+  .form-group
+    = f.label :text, class: "sr-only"
+    = f.text_area :text, class: "form-control", placeholder: "Enter any text you want to read", rows: 3
+
+  = f.submit "Skim text", class: "btn btn-primary"

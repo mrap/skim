@@ -4,6 +4,9 @@ Skim::Application.routes.draw do
   resources :web_articles do
     get 'optimized', on: :member, format: { default: :json }
   end
+  resources :documents do
+    get 'optimized', on: :member, format: { default: :json }
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

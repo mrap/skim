@@ -5,7 +5,7 @@ feature "Reading a article from a url" do
 
   scenario "Reading an article from my blog" do
     visit '/'
-    fill_in 'Enter a url', with: link
+    fill_in 'Enter a link to an article', with: link
     click_on "Skim it"
   end
 end

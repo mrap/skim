@@ -11,6 +11,10 @@
 .url-form {
   margin-top: 20px;
 
+  .url-input {
+    min-width: 250px;
+  }
+
   &.bottom {
     color: $solarized-text-color;
     background-color: $flat-black-color;
