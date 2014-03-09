@@ -2,6 +2,6 @@
 = form_for WebArticle.new, html: {class: "form-inline"} do |f|
   .form-group
     = f.label :url, class: "sr-only"
-    = f.text_field :url, class: "form-control message-field", placeholder: "Enter a url"
+    = f.text_field :url, class: "form-control message-field", placeholder: "Enter a link to an article"
 
   = f.submit "Skim it", class: "btn btn-primary"
