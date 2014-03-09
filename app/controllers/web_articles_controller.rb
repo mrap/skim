@@ -5,6 +5,7 @@ class WebArticlesController < ApplicationController
   end
 
   def new
+    @recently_read_articles = WebArticle.recently_read.limit(5)
   end
 
   def create

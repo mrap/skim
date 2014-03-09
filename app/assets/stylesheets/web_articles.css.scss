@@ -4,9 +4,18 @@
 
 .main-page {
   position: relative;
-  top: 10%;
 }
 
 .url-form {
   margin-top: 20px;
+}
+
+.recent-article-item {
+  padding-top: 8px;
+
+  .recent-article-btn {
+  }
+  .recent-article-link {
+    font-size: 0.8em;
+  }
 }
