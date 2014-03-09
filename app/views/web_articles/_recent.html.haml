@@ -1,7 +1,7 @@
 %h4 Recently Read Articles
 - @recently_read_articles.each do |article|
   .row.recent-article-item
-    .col-xs-10.recent-article-link
+    .col-xs-12.col-sm-10.recent-article-link
       = link_to article.url, article.url
-    .col-xs-2.recent-article-btn
+    .col-xs-6.col-sm-2.recent-article-btn
       = link_to "Skim", article, class: "btn btn-default btn-sm"
