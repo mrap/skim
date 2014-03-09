@@ -9,7 +9,7 @@ class SkimParser
   end
 
   def self.optimum_index(word)
-    @length = self.punctuationless_word(word).length
+    @length = word.length
 
     return 0 if @length < 2
     return 1 if @length <= 4
