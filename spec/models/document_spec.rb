@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Document do
   it { should have_field(:text).with_default_value_of("") }
   it { should have_field(:last_read_at).of_type(DateTime) }
+  it { should have_field(:created_at) }
 
   describe "sort by recently read" do
     before do
