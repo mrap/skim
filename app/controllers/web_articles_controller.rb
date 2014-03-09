@@ -2,7 +2,7 @@ class WebArticlesController < ApplicationController
 
   def show
     @web_article = WebArticle.find(params[:id])
-    @web_article.last_read_at = DateTime.now
+    @web_article.touch(:last_read_at)
   end
 
   def new
