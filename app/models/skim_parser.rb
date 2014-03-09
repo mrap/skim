@@ -11,15 +11,18 @@ class SkimParser
   def self.optimum_index(word)
     @length = word.length
 
-    return 0 if @length < 2
-    return 1 if @length <= 4
-    return (@length * 0.4).to_i
+    if @length < 2
+      index = 0
+    elsif @length <= 4
+      index = 1
+    else
+      index = (@length * 0.4).to_i
+    end
 
-    # if @length % 2 == 0
-    #   @length / 2 - 1
-    # else
-    #   @length / 2
-    # end
+    index = index + 1 if word[0].match(/[[:punct:]]/)
+    index = index - 1 if word[word.length - 1].match(/[[:punct:]]/)
+
+    return index
   end
 
   private
