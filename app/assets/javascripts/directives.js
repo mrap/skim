@@ -16,8 +16,8 @@ directives.directive('skimReader',['$http', '$location', '$interval', function($
         timer,
         isTimerRunning = false;
 
+    scope.minutesRemaining = 0;
     scope.userWantsToSkim = false;
-
 
     // Interface variables.
     scope.toggleSkimming = function () {
@@ -28,6 +28,11 @@ directives.directive('skimReader',['$http', '$location', '$interval', function($
         scope.userWantsToSkim = true;
         startTimer();
       }
+    }
+
+    function updateMinutesRemaining () {
+      var wordsLeft = optimizedTextArray.length - currentIndex - 1;
+      scope.minutesRemaining = (wordsLeft / scope.wpm).toFixed(2);
     }
 
     // Updates intervalBetween if wpm changes changes
@@ -80,6 +85,9 @@ directives.directive('skimReader',['$http', '$location', '$interval', function($
       } else {
         stopTimer();
       }
+
+      // Update minutes remaining.
+      updateMinutesRemaining();
     }
 
     function formatKeyword(word, keyIndex) {

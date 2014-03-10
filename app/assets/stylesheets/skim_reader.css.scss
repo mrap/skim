@@ -11,8 +11,12 @@
   max-width: 80%;
 }
 
+.minutes-remaining {
+  color: gray;
+  font-size: 0.7em;
+}
+
 .controls {
-  margin-top: 30px;
   padding-left: 5%;
 }
 
@@ -53,6 +57,7 @@
   font-style: normal;
   font-weight: 400;
   color: $flat-text-color;
+  margin-bottom: 30px;
 
 
   span {
