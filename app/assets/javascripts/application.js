@@ -14,11 +14,13 @@
 //= require jquery_ujs
 //= require angular
 //= require angular-route
+//= require angular-ui-bootstrap
 //= require bootstrap
 //= require_tree .
 
 var app = angular.module('AppCtrl', [
   'skim.directives',
   'skim.controllers',
-  'ngRoute'
+  'ngRoute',
+  'ui.bootstrap'
 ]);

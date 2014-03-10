@@ -13,6 +13,7 @@ gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'angularjs-rails'
+gem 'angular-ui-bootstrap-rails'
 gem 'font-awesome-sass'
 
 # DB

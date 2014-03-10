@@ -20,15 +20,15 @@ directives.directive('skimReader',['$http', '$location', '$interval', function($
 
 
     // Interface variables.
-    scope.startSkimming = function(){
-      scope.userWantsToSkim = true;
-      startTimer();
-    };
-
-    scope.stopSkimming = function(){
-      scope.userWantsToSkim = false;
-      stopTimer();
-    };
+    scope.toggleSkimming = function () {
+      if (scope.userWantsToSkim) {
+        scope.userWantsToSkim = false;
+        stopTimer();
+      } else {
+        scope.userWantsToSkim = true;
+        startTimer();
+      }
+    }
 
     // Updates intervalBetween if wpm changes changes
     scope.$watch(attrs.wpm, function(value) {

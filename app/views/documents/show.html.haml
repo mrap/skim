@@ -9,10 +9,8 @@
       %span#wpm
         {{wpm}}
       Words Per Minute
-    %button.btn.btn-success{"ng-click"=>"startSkimming()", "ng-hide"=>"userWantsToSkim"}
-      Start
-    %button.btn.btn-default{"ng-click"=>"stopSkimming()", "ng-show"=>"userWantsToSkim"}
-      Stop
+    %button.btn{"type"=>"button", "ng-init"=>"toggleBtnText = 'Start'" ,"ng-class"=>"userWantsToSkim ? 'btn-danger' : 'btn-success'", "ng-click"=>"toggleSkimming()", "ng-model"=>"toggleBtnText", "btn-checkbox"=>"", "btn-checkbox-true"=>"'Stop'", "btn-checkbox-false"=>"'Start'"}
+      {{toggleBtnText}}
 
 .url-form.bottom
   %p
