@@ -1,14 +1,16 @@
 .main-page
   .jumbotron
-    %h1 
-      Read web articles 
+    %h1
+      Read
       .main-word
         freakishly 
       fast
 
     .url-form
+      Read web articles!
       = render partial: 'web_articles/form', flash: flash
     .url-form
+      Read anything you want!
       = render partial: 'documents/form', flash: flash
 
   #recent-articles
