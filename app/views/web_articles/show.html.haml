@@ -1,16 +1,4 @@
-.skim-reader{"ng-controller"=>"SkimReaderCtrl"}
-  .keyword{"skim-reader"=>"", "wpm"=>"wpm", "ng-bind-html"=>"keyword", "key-letter-class"=>"key-letter"}
-  .focus-line-top
-  .focus-line-bottom
-
-  .controls
-    %input.slider{"type"=>"range", "name"=>"wpm", "ng-model"=>"wpm", "min"=>"200", "max"=>"1000.0", "step"=>"50.0"}
-    %p.wpm-label
-      %span#wpm
-        {{wpm}}
-      Words Per Minute
-    %button.btn{"type"=>"button", "ng-init"=>"toggleBtnText = 'Start'" ,"ng-class"=>"userWantsToSkim ? 'btn-danger' : 'btn-success'", "ng-click"=>"toggleSkimming()", "ng-model"=>"toggleBtnText", "btn-checkbox"=>"", "btn-checkbox-true"=>"'Stop'", "btn-checkbox-false"=>"'Start'"}
-      {{toggleBtnText}}
+= render partial: 'shared/skim_reader'
 
 .url-form.bottom
   %p
