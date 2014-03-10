@@ -1,15 +1,19 @@
 .skim-reader{"ng-controller"=>"SkimReaderCtrl"}
-  .keyword{"skim-reader"=>"", "wpm"=>"wpm", "ng-bind-html"=>"keyword", "key-letter-class"=>"key-letter"}
-  .focus-line-top
-  .focus-line-bottom
+  .keyword{"ng-show"=>"isReadyToRead", "skim-reader"=>"", "wpm"=>"wpm", "ng-bind-html"=>"keyword", "key-letter-class"=>"key-letter"}
+  .focus-lines{"ng-show"=>"userWantsToSkim"}
+    .focus-line-top
+    .focus-line-bottom
 
-  .controls
+  .loading{"ng-hide"=>"isReadyToRead"}
+    .fa.fa-spinner.fa-spin.fa-2x
+    Loading optimized version, please wait.
+  .controls{"ng-show"=>"isReadyToRead"}
     %input.slider{"type"=>"range", "name"=>"wpm", "ng-model"=>"wpm", "min"=>"200", "max"=>"1000.0", "step"=>"50.0"}
     %p.wpm-label
       %span#wpm
         {{wpm}}
       Words Per Minute
-    %button.btn{"type"=>"button", "ng-show"=>"isReadyToRead", "ng-init"=>"toggleBtnText = 'Start'", "ng-class"=>"userWantsToSkim ? 'btn-danger' : 'btn-success'", "ng-click"=>"toggleSkimming()", "ng-model"=>"toggleBtnText", "btn-checkbox"=>"", "btn-checkbox-true"=>"'Stop'", "btn-checkbox-false"=>"'Start'"}
+    %button.btn{"type"=>"button", "ng-init"=>"toggleBtnText = 'Start'", "ng-class"=>"userWantsToSkim ? 'btn-danger' : 'btn-success'", "ng-click"=>"toggleSkimming()", "ng-model"=>"toggleBtnText", "btn-checkbox"=>"", "btn-checkbox-true"=>"'Stop'", "btn-checkbox-false"=>"'Start'"}
       {{toggleBtnText}}
     .minutes-remaining
       About {{minutesRemaining}} minutes left.
