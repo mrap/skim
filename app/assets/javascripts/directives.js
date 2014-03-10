@@ -18,6 +18,7 @@ directives.directive('skimReader',['$http', '$location', '$interval', function($
 
     scope.minutesRemaining = 0;
     scope.userWantsToSkim = false;
+    scope.isReadyToRead = false;
 
     // Interface variables.
     scope.toggleSkimming = function () {
@@ -49,6 +50,7 @@ directives.directive('skimReader',['$http', '$location', '$interval', function($
     var optimizedDocumentURL = $location.absUrl() + '/optimized.json';
     $http.get(optimizedDocumentURL).success(function(data, status){
       optimizedTextArray = data;
+      scope.isReadyToRead = true;
     });
 
     var punctuationPauseInterval = function(){
