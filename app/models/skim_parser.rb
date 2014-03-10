@@ -17,10 +17,9 @@ class SkimParser
       index = 1
     else
       index = (@length * 0.4).to_i
+      index = index + 1 if word[0].match(/[[:punct:]]/)
+      index = index - 1 if word[word.length - 1].match(/[[:punct:]]/)
     end
-
-    index = index + 1 if word[0].match(/[[:punct:]]/)
-    index = index - 1 if word[word.length - 1].match(/[[:punct:]]/)
 
     return index
   end

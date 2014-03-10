@@ -26,10 +26,9 @@ describe SkimParser do
       end
 
       context "when the word has punctuation" do
-        let(:word) { "noob." }
         it "should ignore the punctuation" do
-          optimal_index = SkimParser.optimum_index(word)
-          optimal_index.should eq 1
+          SkimParser.optimum_index("noob.").should eq 1
+          SkimParser.optimum_index("has.").should eq 1
         end
       end
     end
